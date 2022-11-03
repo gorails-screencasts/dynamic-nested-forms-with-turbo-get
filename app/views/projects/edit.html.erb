@@ -1,0 +1,12 @@
+<div class="space-y-4 mt-8 mx-auto max-w-lg bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 sm:rounded-lg font-mono">
+  <h1 class="text-3xl text-center">
+    Editing project
+  </h1>
+
+  <%= render "form", project: @project %>
+
+  <div class="text-center">
+    <%= link_to "Show this project", @project, class: "hover:text-blue-400" %> |
+    <%= link_to "Back to projects", projects_path, class: "hover:text-blue-400" %>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<%= form_with(model: project, data: { controller: "render-response" }, class: "space-y-4") do |form| %>
+  <% if project.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+        <% project.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <fieldset>
+    <legend>Project Info</legend>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name, class: "px-2 py-1 border w-full rounded-md" %>
+  </fieldset>
+
+  <div id="tasks" class="mb-2">
+    <%= render partial: "task", collection: @project.tasks %>
+  </div>
+
+  <div class="mb-2">
+    <%= button_tag "Add a Task", type: "button", class: "px-4 py-2 rounded-md bg-blue-300 hover:bg-blue-400", data: { action: "render-response#getTaskPartial" } %>
+  </div>
+
+  <div>
+    <% if form.object.persisted? %>
+      <%= form.submit "Update", class: "p-2 rounded-md bg-blue-300 hover:bg-blue-400 w-full" %>
+    <% else %>
+      <%= form.submit "Create", class: "p-2 rounded-md bg-blue-300 hover:bg-blue-400 w-full" %>
+    <% end %>
+  </div>
+<% end %>

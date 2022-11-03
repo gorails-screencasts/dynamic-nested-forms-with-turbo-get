@@ -1,0 +1,18 @@
+<p style="color: green"><%= notice %></p>
+<div class="space-y-4 mt-8 mx-auto max-w-lg bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 sm:rounded-lg font-mono">
+
+  <%= render @project %>
+
+  <ul>
+    <% @project.tasks.each do |task| %>
+      <li><%= task.name %></li>
+    <% end %>
+  </ul>
+
+  <div class="text-center">
+    <%= link_to "Edit this project", edit_project_path(@project), class: "hover:text-blue-400" %> |
+    <%= link_to "Back to projects", projects_path, class: "hover:text-blue-400" %>
+
+    <%= button_to "Destroy this project", @project, method: :delete, class: "hover:text-blue-400"  %>
+  </div>
+</div>
