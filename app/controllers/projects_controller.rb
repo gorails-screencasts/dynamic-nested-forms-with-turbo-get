@@ -60,7 +60,6 @@ class ProjectsController < ApplicationController
   end
 
   def task_field
-    render layout: false
   end
 
   private
