@@ -1,4 +1,4 @@
-<%= form_with(model: project, data: { controller: "render-response" }, class: "space-y-4") do |form| %>
+<%= form_with(model: project, class: "space-y-4") do |form| %>
   <% if project.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
@@ -22,7 +22,7 @@
   </div>
 
   <div class="mb-2">
-    <%= button_tag "Add a Task", type: "button", class: "px-4 py-2 rounded-md bg-blue-300 hover:bg-blue-400", data: { action: "render-response#getTaskPartial" } %>
+    <%= link_to "Add a Task", task_field_projects_path, data: { turbo_stream: true }, class: "p-2 rounded-md bg-blue-300 hover:bg-blue-400" %>
   </div>
 
   <div>
