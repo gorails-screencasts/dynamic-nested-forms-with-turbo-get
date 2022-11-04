@@ -7,15 +7,6 @@ export default class extends Controller {
   }
 
   async getTaskPartial () {
-    const response = await get("/projects/task_field");
-
-    if (response.ok) {
-      const body = await response.html;
-      const tasksSection = document.querySelector("#tasks");
-      const templateElement = document.createElement("template");
-      templateElement.innerHTML = body;
-
-      tasksSection.appendChild(templateElement.content.firstElementChild);
-    }
+    const response = await get("/projects/task_field", {responseKind: "turbo-stream"});
   }
 }
