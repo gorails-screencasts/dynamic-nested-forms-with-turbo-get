@@ -1,4 +1,4 @@
-<%= fields_for "project[tasks_attributes][#{task.persisted? ? task.id : Time.now.to_i }]", task do |ff| %>
+<%= fields_for "project[tasks_attributes][#{task.persisted? ? task.id : task.object_id }]", task do |ff| %>
   <fieldset class="mb-4">
     <legend>Task Info</legend>
     <%= ff.label :name %><br>
