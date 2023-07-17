@@ -1,9 +1,0 @@
-<%= fields_for "project[tasks_attributes][#{task.persisted? ? task.id : task.object_id }]", task do |ff| %>
-  <fieldset class="mb-4">
-    <legend>Task Info</legend>
-    <%= ff.label :name %><br>
-    <%= ff.text_field :name, class: "px-2 py-1 border w-full rounded-md" %>
-    <%= ff.hidden_field :id %>
-  </fieldset>
-<% end %>
-

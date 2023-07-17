@@ -1,11 +1,7 @@
 class Project < ApplicationRecord
   has_many :tasks, dependent: :destroy
 
-  accepts_nested_attributes_for :tasks
+  validates :name, presence: true
 
-  # def task_attributes=(task_attributes)
-  #   task_attributes.each do |attr|
-  #     tasks.build(attr)
-  #   end
-  # end
+  accepts_nested_attributes_for :tasks
 end

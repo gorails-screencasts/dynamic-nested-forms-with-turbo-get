@@ -18,18 +18,14 @@
   </fieldset>
 
   <div id="tasks" class="mb-2">
-    <%= render partial: "task", collection: @project.tasks %>
+    <%= render @project.tasks %>
   </div>
 
   <div class="mb-2">
-    <%= link_to "Add a Task", task_field_projects_path, data: { turbo_stream: true }, class: "p-2 rounded-md bg-blue-300 hover:bg-blue-400" %>
+    <%= link_to "Add a Task", new_task_path, data: { turbo_stream: true }, class: "p-2 rounded-md bg-blue-300 hover:bg-blue-400" %>
   </div>
 
   <div>
-    <% if form.object.persisted? %>
-      <%= form.submit "Update", class: "p-2 rounded-md bg-blue-300 hover:bg-blue-400 w-full" %>
-    <% else %>
-      <%= form.submit "Create", class: "p-2 rounded-md bg-blue-300 hover:bg-blue-400 w-full" %>
-    <% end %>
+    <%= form.submit nil, class: "p-2 rounded-md bg-blue-300 hover:bg-blue-400 w-full" %>
   </div>
 <% end %>
