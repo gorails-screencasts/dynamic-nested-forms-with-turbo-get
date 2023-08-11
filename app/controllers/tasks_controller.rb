@@ -7,8 +7,8 @@ class TasksController < ApplicationController
     task = Task.find(params[:id])
     task.destroy
   rescue ActiveRecord::RecordNotFound
-    task = params[:id]
+    task = Task.new(id: params[:id])
   ensure
-    render turbo_stream: turbo_stream.remove(task)
+    render turbo_stream: turbo_stream.remove(task.id)
   end
 end
